@@ -24,6 +24,7 @@ public class LoginServlet extends HttpServlet {
     public LoginServlet() {
         super();
     }
+    // This is login  servlet
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		    
