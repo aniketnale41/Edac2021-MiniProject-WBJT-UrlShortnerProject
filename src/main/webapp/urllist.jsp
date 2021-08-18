@@ -1,9 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%
-	 if(session.getAttribute("userEmail") == null) {
-		response.sendRedirect("login.jsp");
+
+<%@ page
+	import="com.cdac.pojo.ShortUrlItem,org.hibernate.Query,org.hibernate.SessionFactory,org.hibernate.Session,org.hibernate.cfg.Configuration,java.util.List"%>
+
+<%
+	if (session.getAttribute("userEmail") == null) {
+	response.sendRedirect("login.jsp");
 	}
+
+SessionFactory factory = new Configuration().configure().buildSessionFactory();
+Session fSession = factory.openSession();
+
+Query query2 = fSession.createQuery("from ShortUrlItem where userId=" + session.getAttribute("userId") + "");
+List<ShortUrlItem> shortItemList = query2.getResultList();
+
+fSession.close();
+factory.close();
 %>
 <!DOCTYPE html>
 <html>
@@ -32,7 +45,14 @@
 
 		<div
 			class="container d-flex justify-content-center flex-column align-items-center">
+			<div class="d-flex justify-content-between w-100">
 			<h4>List of Shorten Urls</h4>
+			<a href="urllist.jsp">
+			<button type="button" class="btn btn-primary">Refresh</button>
+			</a>
+			</div>
+			
+				
 			<table class="table table-hover table-light table-striped">
 				<thead>
 					<tr>
@@ -40,35 +60,29 @@
 						<th scope="col">ID</th>
 						<th scope="col">Short URL</th>
 						<th scope="col">Long URL</th>
+						<th scope="col">Visitors</th>
 					</tr>
 				</thead>
 				<tbody>
+					
+
+					<%
+						for (int i = shortItemList.size(); i > 0; i--) {
+					%>
 					<tr>
-						<th scope="row">1</th>
-						<td>dsF4S7</td>
-						<td>http://localhost:8081/UrlShorterProject/r/dsF4S7</td>
-						<td>https://docs.google.com/spreadsheets/d/1jaI2BdSKPMfhcrsLgp3VS1oVS5ka9zrb35fHzH-ngMA/</td>
+						<th scope="row"><%=shortItemList.size()+1-i %></th>
+						<td><%= shortItemList.get(i-1).getShortUrlId() %></td>
+						<td>http://localhost:8081/UrlShorterProject/r/<%= shortItemList.get(i-1).getShortUrlId() %></td>
+						<td><%= shortItemList.get(i-1).getRedirectUrl() %></td>
+						<td><%= shortItemList.get(i-1).getVisitorCount() %></td>
 					</tr>
-					<tr>
-						<th scope="row">2</th>
-						<td>dsF4S7</td>
-						<td>http://localhost:8081/UrlShorterProject/r/dsF4S7</td>
-						<td>https://docs.google.com/spreadsheets/d/1jaI2BdSKPMfhcrsLgp3VS1oVS5ka9zrb35fHzH-ngMA/</td>
-					</tr>
-					<tr>
-						<th scope="row">3</th>
-						<td>dsF4S7</td>
-						<td>http://localhost:8081/UrlShorterProject/r/dsF4S7</td>
-						<td>https://docs.google.com/spreadsheets/d/1jaI2BdSKPMfhcrsLgp3VS1oVS5ka9zrb35fHzH-ngMA/</td>
-					</tr>
-					<tr>
-						<th scope="row">4</th>
-						<td>dsF4S7</td>
-						<td>http://localhost:8081/UrlShorterProject/r/dsF4S7</td>
-						<td>https://docs.google.com/spreadsheets/d/1jaI2BdSKPMfhcrsLgp3VS1oVS5ka9zrb35fHzH-ngMA/</td>
-					</tr>
+					<%
+						}
+					%>
+
 				</tbody>
 			</table>
+			
 		</div>
 	</div>
 
