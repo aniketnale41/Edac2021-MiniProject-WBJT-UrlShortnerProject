@@ -29,10 +29,7 @@ public class LoginService {
         if(dbPassWord.equals(loginPass)) {
         	
         	return true;
-        } else {
-        	
-        }
-        
+        } 
 		return false;
 	}
 	

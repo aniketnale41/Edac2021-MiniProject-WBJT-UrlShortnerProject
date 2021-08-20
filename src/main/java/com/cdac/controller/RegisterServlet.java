@@ -25,6 +25,7 @@ public class RegisterServlet extends HttpServlet {
       
        if(isRegistered) {
          System.out.println("Register Successful");
+         response.sendRedirect("login.jsp");
        }else {
     	   System.out.println("Register Not Successful");
        }

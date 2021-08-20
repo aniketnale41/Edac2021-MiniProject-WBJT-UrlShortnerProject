@@ -43,8 +43,10 @@ public class LoginServlet extends HttpServlet {
                 List<User> userList= query.getResultList();
                 User logUser = userList.get(0);
             	HttpSession session = request.getSession();
+            	
             	session.setAttribute("userEmail", logUser.getEmailId());
             	session.setAttribute("userId", logUser.getUserId());
+//            	session.setMaxInactiveInterval(60);
             	response.sendRedirect("dashboard.jsp");
             }else {
             	response.sendRedirect("login.jsp?error=true");
