@@ -46,6 +46,7 @@ public class LoginServlet extends HttpServlet {
             	
             	session.setAttribute("userEmail", logUser.getEmailId());
             	session.setAttribute("userId", logUser.getUserId());
+            	
 //            	session.setMaxInactiveInterval(60);
             	response.sendRedirect("dashboard.jsp");
             }else {

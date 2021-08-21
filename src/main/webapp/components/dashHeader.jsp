@@ -4,7 +4,6 @@
     <%
     response.setHeader("Cache-Control", "no-cache, no-store, must-validate");
     response.setHeader("Pragma", "no-cache");
-
     %>
 <!DOCTYPE html>
 <html>
