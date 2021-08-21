@@ -21,11 +21,6 @@ import com.cdac.services.LoginService;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
    
-    public LoginServlet() {
-        super();
-    }
-    // This is login  servlet
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		    
 		    String email=request.getParameter("email");

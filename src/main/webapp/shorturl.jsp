@@ -71,7 +71,7 @@ if (request.getParameter("shortId") != null) {
 			<form action="short " method="post" style="width: 100%">
 				<div class="input-group">
 					<span class="input-group-text bg-secondary text-light">Enter
-						Full Url</span> <input type="text" aria-label="First name" name="url"
+						Full Url</span> <input type="text" aria-label="First name" placeholder="Enter long Url" name="url"
 						class="form-control w-50">
 				</div>
 				<br />
