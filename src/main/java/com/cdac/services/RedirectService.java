@@ -43,7 +43,8 @@ public class RedirectService {
 		Transaction transaction=session.beginTransaction();
 		String visitorDetail =  getVisitorInfo(request);
 		boolean isDesktop  = getDevice(visitorDetail);
-		int userId = (Integer) request.getSession().getAttribute("userId");
+		//int userId = Integer.parseInt((String) request.getSession().getAttribute("userId"));
+		int userId = currentItem.getUserId();
 		VisitorDetailItem vdi = new VisitorDetailItem(rUrl,visitorDetail,isDesktop,userId);
 		
 		currentItem.setVisitorCount(currentItem.getVisitorCount()+1);

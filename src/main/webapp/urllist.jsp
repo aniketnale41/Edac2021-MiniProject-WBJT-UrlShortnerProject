@@ -28,7 +28,7 @@ factory.close();
 	rel="stylesheet"
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 	crossorigin="anonymous">
-	<link rel="stylesheet"
+<link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
@@ -75,7 +75,7 @@ tbody {
 						<th scope="col">Short URL</th>
 						<th scope="col">Long URL</th>
 						<th scope="col">Visitors</th>
-						<th scope="col">Actions</th>
+						<th scope="col" colspan="3">Actions</th>
 					</tr>
 
 					<%
@@ -87,10 +87,19 @@ tbody {
 						<td>http://localhost:8081/UrlShorterProject/r/<%=shortItemList.get(i - 1).getShortUrlId()%></td>
 						<td><%=shortItemList.get(i - 1).getRedirectUrl()%></td>
 						<td><%=shortItemList.get(i - 1).getVisitorCount()%></td>
-						<td><a href="update.jsp?id=<%=shortItemList.get(i - 1).getItemId()%>&sUrl=<%=shortItemList.get(i - 1).getShortUrlId()%>"><button class="btn btn-secondary"
-									title="update">
+						<td></a> <a
+							href="urlInfo?url=<%=shortItemList.get(i - 1).getShortUrlId()%>"><button
+									class="btn btn-success" title="Analytics">
+									<i class="bi bi-bar-chart"></i>
+								</button></a></td>
+						<td><a
+							href="update.jsp?id=<%=shortItemList.get(i - 1).getItemId()%>&sUrl=<%=shortItemList.get(i - 1).getShortUrlId()%>"><button
+									class="btn btn-secondary" title="update">
 									<i class="bi bi-plus-circle"></i>
-								</button></a> <a href="delete?id=<%=shortItemList.get(i - 1).getItemId()%>"><button class="btn btn-danger" title="delete">
+								</button></td>
+						<td></a> <a
+							href="delete?id=<%=shortItemList.get(i - 1).getItemId()%>"><button
+									class="btn btn-danger" title="delete">
 									<i class="bi bi-trash"></i>
 								</button></a></td>
 					</tr>

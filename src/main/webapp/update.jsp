@@ -2,7 +2,11 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ page
 	import="com.cdac.pojo.ShortUrlItem,com.cdac.pojo.VisitorDetailItem,org.hibernate.Query,org.hibernate.SessionFactory,org.hibernate.Session,org.hibernate.cfg.Configuration,java.util.List,com.cdac.pojo.User"%>
-
+<%
+	if (session.getAttribute("userEmail") == null) {
+	response.sendRedirect("login.jsp");
+}
+%>
 
 <!DOCTYPE html>
 <html>
@@ -20,8 +24,13 @@
 	crossorigin="anonymous"></script>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+<style type="text/css">
+
+
+</style>
 </head>
-<body style="margin-top: 50px; margin-left: 0px;">
+<body style="margin-top:50px">
+
 	<div style="position: absolute; top: 0px; width: 100%"><%@ include
 			file="components/dashHeader.jsp"%></div>
 
@@ -30,12 +39,15 @@
 			style="width: 200px; padding: 10px">
 			<%@ include file="components/sidebar.jsp"%>
 		</div>
-		<div class="container flex-column d-flex justify-content-center align-items-center pt-5">
-		<form action="update" method="post" style="width: 100%">
-		<input type="hidden" value="<%= request.getParameter("id") %>" name="id"/>
+		<div
+			class="container flex-column d-flex justify-content-center align-items-center pt-5">
+			<form action="update" method="post" style="width: 100%">
+				<input type="hidden" value="<%=request.getParameter("id")%>"
+					name="id" />
 				<div class="input-group">
-					<span class="input-group-text bg-secondary text-light"> <%= (String)request.getParameter("sUrl") %></span> <input type="text" placeholder="Enter new Url" aria-label="First name" name="url"
-						class="form-control w-50">
+					<span class="input-group-text bg-secondary text-light"> <%=(String) request.getParameter("sUrl")%></span>
+					<input type="text" placeholder="Enter new Url"
+						aria-label="First name" name="url" class="form-control w-50">
 				</div>
 				<br />
 				<div class="text-center">
@@ -43,9 +55,7 @@
 				</div>
 			</form>
 		</div>
+	
 	</div>
-
-
-
 </body>
 </html>

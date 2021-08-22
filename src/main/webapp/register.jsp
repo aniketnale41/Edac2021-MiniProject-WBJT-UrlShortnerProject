@@ -11,6 +11,16 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Register</title>
+<style>
+body {
+height:100vh;
+	margin-top: 52px;
+	margin-left: 0;
+	margin-right: 0;
+	margin-bottom: 30px;
+	 background:linear-gradient(180deg, rgba(  255, 179, 210 , 0.15), rgba( 0, 122, 70 , 0.2));
+}
+</style>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"

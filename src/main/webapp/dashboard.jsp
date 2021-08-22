@@ -114,8 +114,5 @@ factory2.close();
 			</a>
 		</div>
 	</div>
-
-
-
 </body>
 </html>

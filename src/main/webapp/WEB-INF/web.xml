@@ -52,6 +52,12 @@
   	<description></description>
   	<servlet-class>com.cdac.controller.deleteServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>urlInfoServlet</servlet-name>
+  	<display-name>urlInfoServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.cdac.controller.urlInfoServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>LoginServlet</servlet-name>
   	<url-pattern>/login</url-pattern>
@@ -83,5 +89,9 @@
   <servlet-mapping>
   	<servlet-name>deleteServlet</servlet-name>
   	<url-pattern>/delete</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>urlInfoServlet</servlet-name>
+  	<url-pattern>/urlInfo</url-pattern>
   </servlet-mapping>
 </web-app>
